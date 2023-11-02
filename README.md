@@ -1,4 +1,4 @@
 # myrepo1-demo
-this is my 1st github repository 
-Auther - Rohith
+CODE FOR A SIMPLE QUIZ GAME 
+
 
