@@ -2,7 +2,6 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include<string.h>
-#include<time.h>
 void scorecard(char name[20])
 {
   FILE *scorecard;
@@ -284,6 +283,7 @@ else
     scorecard = fopen("scorecard.txt","a");
     fprintf(scorecard,"%s\t\t%d\n",name,points);
     fclose(scorecard);
+    count = 0;
     if(points>1)
         {
             printf("\n                          ** CONGRATULATIONS YOU HAVE SCORED %d POINTS **\n",points);
