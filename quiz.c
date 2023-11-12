@@ -16,7 +16,7 @@ void reset()
 {
     FILE *scorecard;
     scorecard = fopen("scorecard.txt","w");
-    fprintf(scorecard," ");
+    fprintf(scorecard,"");
     fclose(scorecard);
 }
 int main()
