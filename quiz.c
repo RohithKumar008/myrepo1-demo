@@ -2,8 +2,9 @@
 #include<ctype.h>
 #include<stdlib.h>
 #include<string.h>
-void scorecard(char name[20])
+void scorecard()
 {
+    char name[20];
   FILE *scorecard;
     scorecard = fopen("scorecard.txt","r");
     while (fgets(name, sizeof(name), scorecard) != NULL) {
@@ -715,7 +716,7 @@ else if(caps0=='Q')
 else if (caps0 == 'V')
     {
         printf("NAME        SCORE\n");
-        scorecard(name);
+        scorecard();
         goto mainhome;
     }
 else if (caps0 == 'R')
