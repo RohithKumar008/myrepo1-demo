@@ -1,28 +1,18 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
-#include<string.h>
-void scorecard()
-{
-    char name[20];
-  FILE *scorecard;
-    scorecard = fopen("scorecard.txt","r");
-    while (fgets(name, sizeof(name), scorecard) != NULL) {
-        printf("%s", name);
-    }
-    fclose(scorecard);
-}
-
 void reset()
 {
-    FILE *scorecard;
-    scorecard = fopen("scorecard.txt","w");
-    fprintf(scorecard,"");
-    fclose(scorecard);
+    const char *filename = "scorecard.txt";
+     if (remove(filename) == 0) {
+        printf("score has been reset sucessfully\n");
+    } else {
+        perror("Error deleting file");
+    }
 }
 int main()
 {   
-    int seconds=10;
+    // int seconds=10;
     char choice1,choice2,choice3,choice4;
     int count=0,points,score;
     char name[20],diff;
@@ -698,7 +688,7 @@ if(caps0=='S')
     else
         {
             printf("you have scored %d and did not clear LEVEL 3\n",points);
-            printf("you cannot goto next level\n");
+            printf("beter luck next time \n");
             FILE *scorecard;
         scorecard = fopen("scorecard.txt","a");
         fprintf(scorecard,"%s\t\t%d\n",name,score);
@@ -715,9 +705,27 @@ else if(caps0=='Q')
     }  
 else if (caps0 == 'V')
     {
-        printf("NAME        SCORE\n");
-        scorecard();
-        goto mainhome;
+        FILE *scorecard;
+        scorecard = fopen("scorecard.txt","r");
+        fclose(scorecard);
+        if(scorecard == NULL)
+            {
+                printf("none has played yet\n");
+            }
+        else
+            {
+                printf("NAME        SCORE\n");
+                char name[20];
+                FILE *scorecard;
+                    scorecard = fopen("scorecard.txt","r");
+                    while (fgets(name, sizeof(name), scorecard) != NULL) {
+                        printf("%s", name);
+                        }
+    fclose(scorecard);
+                
+            }
+        
+            goto mainhome;
     }
 else if (caps0 == 'R')
     {
